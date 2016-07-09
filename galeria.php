@@ -361,7 +361,7 @@ require_once 'init.php';
           }
         );
       var handler = StripeCheckout.configure({
-        key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
+        key: 'pk_live_cUwyFVPl8AYX8uN5cAtDsIRw',
         image: 'img/png/logorojo.png',
         locale: 'auto',
         billingAddress: 'true',
