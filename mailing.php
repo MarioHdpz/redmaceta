@@ -2,8 +2,8 @@
  <?
 require_once 'init.php';
 
-/// mailing 
-        
+/// mailing
+
 $servername = "db624747361.db.1and1.com";
 $username = "dbo624747361";
 $password = "tomates";
@@ -23,7 +23,7 @@ $sql = "SELECT * FROM bolsa WHERE id =".$_SESSION["user"];
             $quants= $row['quants'];
             $products = $row['products'];
     }
-    
+
 	//Creamos los dos arreglos separados
 	$ids = explode(',',$products);
 	$cants = explode(',',$quants);
@@ -40,15 +40,15 @@ $sql = "SELECT * FROM bolsa WHERE id =".$_SESSION["user"];
 		$importe = $precio[$i]*$cants[$i];
 		$total = $total+$importe;
 	}
-    
+
 for ($i=0; $i < $idslenght; $i++) {
 	$stmt = $db->query('SELECT * FROM Producto WHERE id ='.$ids[$i]);
 	$db->query("SET NAMES 'utf8'");
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
    $price = $precio[$i]*$cants[$i];
-    
-   
+
+
     if($row["Categoria"]=="1"){ // Es paquete
         for($j=0; $j< $cants[$i]; $j++){ ///  for -- más de 1 paquete
             $quants= $row['quants'];
@@ -57,7 +57,7 @@ for ($i=0; $i < $idslenght; $i++) {
             $cants_prod = explode(',',$quants);
             $idslong = count($ids_prod);
 
-            for ($k=0; $k < $idslong; $k++) {
+            for ($k=0; $k < $idslong; $k++) { // Productos del paquete
                $consul = $db->query('SELECT * FROM Producto WHERE id ='.$ids_prod[$k]);
                 $db->query("SET NAMES 'utf8'");
                 $row_paq = $consul->fetch(PDO::FETCH_ASSOC);
@@ -71,17 +71,14 @@ for ($i=0; $i < $idslenght; $i++) {
                     '.$row_paq["id"]);
             }
         }
-    }
-    
-        $stock = $row["Stock"] - $cants[$i];
-        $db->query('
-                UPDATE Producto
+     }
+
+    $stock = $row["Stock"] - $cants[$i];
+    $db->query('UPDATE Producto
                 SET Stock = "'.$stock.'"
                 WHERE id =
                 '.$row["id"]);
-    
-    
-        
+
     $codigoPHP = '<tr>
 		<td><span>'.$row["Nombre"].'</span></td>
 		<td><span></span>'.$row["Unidad"].'(s)</td>
@@ -89,11 +86,10 @@ for ($i=0; $i < $idslenght; $i++) {
 		<td >$ <span>'.$price.'</span> MXN</td>
 	    </tr>'.$codigoPHP;
 }
-    
 
 $msg = null;
 //if(isset($_POST["phpmailer"])){
-    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]); 
+    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]);
     $email =  $_POST['stripeEmail'];   // htmlspecialchars($_POST["email"]);
    // $asunto = htmlspecialchars($_POST["asunto"]);
     $asunto= "Detalles de compra";
@@ -104,7 +100,7 @@ $msg = null;
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-      
+
       <style>
         body {word-wrap: break-word;font-family: "Open Sans", sans-serif;}
           .contenedor{
@@ -131,9 +127,9 @@ $msg = null;
               left: 5%;
               top: -200px;
               z-index: 10;
-              padding: 10px; 
+              padding: 10px;
               text-align: center;
-              
+
           }
           .espan{
               display: block;
@@ -161,7 +157,7 @@ $msg = null;
 <p style="
     word-wrap: break-word;">
 Gracias por sembrar la diferencia a través de Red Maceta. Con tu compra no sólo
-consumirás productos orgánicos, saludables y de la mejor calidad, también 
+consumirás productos orgánicos, saludables y de la mejor calidad, también
 apoyas la economía local y ayudas a mejorar los ingresos de los productores.
 
 Para que no se te olvide, te dejamos una lista con las cosas que pediste: <br/> <br/>
@@ -180,12 +176,10 @@ Para que no se te olvide, te dejamos una lista con las cosas que pediste: <br/> 
 
 <br/>
 <span style="font-size: 16px;font-weight: bolder;"> Código: '.$token.' </span>
-    
+
 <br/><br/>
-<span class="espan">Recuerda que debes recogerlos este próximo 5 de junio a las 10:00 a.m. en el 
-Huerto Roma Verde.</span> Nuestros productores  estarán muy contentos de platicar 
-contigo y entregarte tus deliciosos alimentos. Además podrás disfrutar de talleres, 
-conferencias y hasta clase de Yoga.
+<span class="espan">Recuerda que debes recogerlos este próximo 23 de julio a las 11:00 a.m. en el Huerto Roma Verde.</span> Nuestros productores  estarán muy contentos de platicar
+contigo y entregarte tus deliciosos alimentos.
 
 Sabemos que tienes GPS y podrás llegar, pero de todos modos te dejamos un mapa
 con la ubicación de nuestra Primera Maceta para que lo tengas a la mano: <br/>
@@ -199,20 +193,20 @@ con la ubicación de nuestra Primera Maceta para que lo tengas a la mano: <br/>
  Calle Jalapa s/n, Cuauhtémoc,Roma Sur,06760 Ciudad de México, D.F.,México
 <br/><br/>
  Los productores y Red Maceta estamos muy felices de que formes parte de nuestra
- comunidad. Tú puedes hacerla crecer compartiendo tu experiencia con tus amigos. 
+ comunidad. Tú puedes hacerla crecer compartiendo tu experiencia con tus amigos.
 
 </p>
 <img src="http://redmaceta.com/prueba/bulbasaur.jpg"  height="auto" width="420" style="text-align:center;">
 <br/>
 P.D.: Nos preocupa el planeta, por lo que no es necesario que imprimas este correo, sólo muestra tu código para recibir tus productos.
 </div>
-    
+
 </body>
 </html>';
     $adjunto = $_FILES["adjunto"];
-    
+
     require "PHPMailer-master/PHPMailer-master/class.phpmailer.php";
-    
+
     $mail = new PHPMailer;
     $mail->Host ="u81005991.1and1-data.host";
     $mail->From ="aloha@redmaceta.com";
@@ -221,16 +215,16 @@ P.D.: Nos preocupa el planeta, por lo que no es necesario que imprimas este corr
     $mail->addAddress($email, $nombre);
     $mail->MsgHTML($mensaje);
     $mail->CharSet = 'UTF-8';
-    
+
     if($adjunto["size"] > 0){
         $mail-> addAttachment($adjunto["tmp_name"], $adjunto["name"]);
     }
     if($mail->send()){
-            $msg ="Enhorabuena, mensaje enviado a $email"; 
+            $msg ="Enhorabuena, mensaje enviado a $email";
     }else{
         $msg ="Ha ocurrido un error";
     }
 // }
-     //////////// fin de mailing   
-     
+     //////////// fin de mailing
+
      ?>

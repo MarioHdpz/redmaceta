@@ -559,9 +559,35 @@ footer p{
 }
 }
 /*Funcionamiento*/
+#asifunciona{
+  display: none;
+}
+#asifunciona_consumidor, #asifunciona_productor, #asifunciona_macetero, #asifunciona_inicial{
+  display: none;
+}
 .funcion {
   top: 20px;
   position: relative;
+}
+.encabezado_funcion{
+  margin: 0 auto;
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+.func_activator{
+  margin: 0 10px;
+  max-height: 2.0rem;
+  float: right;
+}
+.func_activator{
+    cursor: pointer;
+}
+.func_border:hover{
+    border-style: solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-color: #DF5D5D;
+    cursor: pointer;
 }
 .maceta{
   position: relative;

@@ -42,7 +42,7 @@ VALUES ('', '$products', '$quants', '$fecha', '$hora', '$total')";
 
 $conn->query($sql);
 $id = $conn->insert_id;
- 
+
 
 $_SESSION["user"] = $id;
 

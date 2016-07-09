@@ -27,9 +27,9 @@
         $offset = ($pag-1) * $limit;
       // maximo por pagina
 
-
+  
     mysql_select_db($database, $conn);
-
+    
     $sqlTotal = "SELECT FOUND_ROWS() as total";
 
     $rsTotal = mysql_query($sqlTotal);
@@ -37,8 +37,8 @@
     $rowTotal = mysql_fetch_assoc($rsTotal);
     // Total de registros sin limit
     $total = $rowTotal["total"];
-
-
+  
+    
     $cat = 0;
     $cat = $_REQUEST["cat"];
     $q = $_REQUEST["q"];
@@ -61,9 +61,9 @@
               VALUES ('', '$q')";
       mysqli_query($conn, $sql_busq);
     }
-
-
-
+    
+    
+    
     $result = mysqli_query($conn, $sql);
     $rowcount=mysqli_num_rows($result);
     if ($rowcount==0){
@@ -72,15 +72,15 @@
       $result = mysqli_query($conn, $sql);
     }
     echo '<div class="row">';
+    
 
-
-
+    
     while($row = mysqli_fetch_assoc($result)){
         $sql_productor = "SELECT * FROM productors WHERE id = ".$row['IDProductor'];
         $result_productor  = mysqli_query($conn, $sql_productor);
         $row2 = mysqli_fetch_assoc($result_productor);
     ?>
-
+    
       <!--  card <?php echo $x ?> -->
       <div class="col l4 m6 s12">
           <div class="card">
@@ -138,25 +138,18 @@
                 </div>
                 <p class="descripcion"><?php echo $row["Descripcion"] ?></p>
                 <div class="compra">
-                        <?php  if ($row["Stock"] == "0") {?>
-                        <a onclick="agotado()" class="waves-effect waves-light btn red">Agotado</a>
-                        <?php }else{  ?>
                         <a onclick="agregar('<?php echo $row["id"]?>')" class="waves-effect waves-light btn red">A la canasta</a>
-                        <?php } ?>
                 </div>
               </div>
               <!-- /Atrás card -->
               <!-- Botón delantero -->
               <div class="boton-delantero">
-                  <!-- Stock -->
-                  <?php  if ($row["Stock"] == "0") {?>
-
+                  <?  if ($row["Stock"] == "0") {?>              
                   <img src="img/png/btn_canasta_compra.png" onmouseover="hoverimg(this)" onclick="agotado()" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
-
-                  <?php }else{  ?>
-                     <img src="img/png/btn_canasta_compra.png" onclick="agregar('<?php echo $row["id"]?>')" onmouseover="hoverimg(this)" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
+                  <? }else{  ?> 
+                     <img src="img/png/btn_canasta_compra.png" onclick="espere()" onmouseover="hoverimg(this)" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
                   <!--onclick="agregar('php echo $row["id"]?>')"  -->
-                  <?php } ?>
+                <? } ?>
               </div>
               <!-- /Botón delantero -->
           </div>
@@ -167,7 +160,7 @@
         }
       ?>
 
-
+    
       </div>
       <div class="green galeria">
         <div class="categorias center">
@@ -181,6 +174,6 @@
             <a id="4" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
         </div>
       </div>
-
+    
 </body>
 </html>
