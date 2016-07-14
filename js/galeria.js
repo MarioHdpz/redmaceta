@@ -119,6 +119,7 @@
           tot += parseFloat(x[i].innerText);
         }
         document.getElementById("total").innerHTML =tot;
+        document.getElementById("total_checkout").innerHTML =tot;
         if (tot<30) {
           document.getElementById('continuar').style.pointerEvents = 'none';
           document.getElementById('continuar').className = "";

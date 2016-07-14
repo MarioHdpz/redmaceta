@@ -57,8 +57,9 @@
     }
     else{
       $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";
-      $sql_busq = "INSERT INTO Busquedas (IdCliente, Palabras)
-              VALUES ('', '$q')";
+        $fecha = date("Y-m-d");
+      $sql_busq = "INSERT INTO Busquedas (IdCliente, Palabras, fecha)
+              VALUES ('', '$q', '$fecha')";
       mysqli_query($conn, $sql_busq);
     }
     
@@ -144,12 +145,15 @@
               <!-- /Atrás card -->
               <!-- Botón delantero -->
               <div class="boton-delantero">
-                  <?  if ($row["Stock"] == "0") {?>              
+                  <?  if ($row["Stock"] == "0") {?>   //// stock
+                  
                   <img src="img/png/btn_canasta_compra.png" onmouseover="hoverimg(this)" onclick="agotado()" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
+                  
                   <? }else{  ?> 
-                     <img src="img/png/btn_canasta_compra.png" onclick="espere()" onmouseover="hoverimg(this)" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
+                     <img src="img/png/btn_canasta_compra.png" onclick="agregar()" onmouseover="hoverimg(this)" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
                   <!--onclick="agregar('php echo $row["id"]?>')"  -->
-                <? } ?>
+                
+                  <? } ?>
               </div>
               <!-- /Botón delantero -->
           </div>

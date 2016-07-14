@@ -214,6 +214,11 @@ require_once 'init.php';
                        </tbody>
                    </table>
                 </div>
+                <div class="row total_checkout">
+                    <p>
+                      Total: $ <span id="total_checkout"></span> MXN
+                    </p>
+                </div>
                 <p>
                   <input type="checkbox" id="termcheck" onclick="activar_reg()"/>
                   <label for="termcheck">Acepto <a href="/legal.html" target="_blank">Términos y Condiciones</a></label>
