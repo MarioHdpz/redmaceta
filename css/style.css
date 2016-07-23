@@ -489,6 +489,13 @@ td{
   font-weight: 600;
   color: #818181;
 }
+.total_checkout p{
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #818181;
+  float: right;
+}
  input[type=number]{
    width: 50%;
    text-align: center;

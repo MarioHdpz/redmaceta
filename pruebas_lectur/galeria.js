@@ -24,6 +24,8 @@
                 xhttp.send();
       }
       function categoria(str) {
+          document.getElementById(str).style.color = "blue";
+          
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -61,11 +63,7 @@
         }
         importe(id);
       }
-      function agotado(){
-              Materialize.toast('!Producto Agotado! :/', 4000,'tostada');
-      }
       function agregar(str){
-        /*Materialize.toast('Espera la siguiente Maceta', 4000,'tostada');*/
         var flag = 0;
         var ids = document.getElementsByClassName("idbolsa");
         for (var i = 0; i < ids.length; i++) {
@@ -96,6 +94,12 @@
             xhttp.open("GET", "bolsa.php?b=" + str, true);
             xhttp.send();
       }
+      function agotado(){
+              Materialize.toast('Producto Agotado! :/', 4000,'tostada');
+        }
+ function espere(){
+              Materialize.toast('Espera la siguiente maceta.', 4000,'tostada');
+        }
       function quitar(rowid)
       {
           var row = document.getElementById(rowid);
@@ -119,17 +123,6 @@
           tot += parseFloat(x[i].innerText);
         }
         document.getElementById("total").innerHTML =tot;
-        document.getElementById("total_checkout").innerHTML =tot;
-        if (tot<30) {
-          document.getElementById('continuar').style.pointerEvents = 'none';
-          document.getElementById('continuar').className = "";
-          document.getElementById('continuar').className = "btn disabled red";
-        }
-        else {
-          document.getElementById('continuar').style.pointerEvents = 'auto';
-          document.getElementById('continuar').className = "";
-          document.getElementById('continuar').className = "modal-action modal-close waves-effect waves-red btn red";
-        }
         return tot;
       }
       function pagar(){
@@ -155,8 +148,7 @@
             };
             xhttp.open("GET", "continuar.php?products="+lista_str+"&quants="+cant_str, true);
             xhttp.send();
-        //ABRIR MODAL LOGIN CON BOTON DESACTIVADO
-        document.getElementById('estraip').style.pointerEvents = 'none';
+        //ABRIR MODAL LOGIN
         $('#login').openModal();
       }
       function checkpass(){
@@ -170,12 +162,10 @@
       }
       function activar_reg(){
         if (document.getElementById('termcheck').checked) {
-          document.getElementById('estraip').style.pointerEvents = 'auto';
           document.getElementById('estraip').className = "";
           document.getElementById('estraip').className = "modal-action modal-close waves-effect waves-red btn green";
         }
         else {
-          document.getElementById('estraip').style.pointerEvents = 'none';
           document.getElementById('estraip').className = "";
           document.getElementById('estraip').className = "btn disabled green";
         }

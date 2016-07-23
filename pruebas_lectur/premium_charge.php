@@ -35,7 +35,7 @@ if (isset($_POST['stripeToken'])){
 			'.$_SESSION["user"]);
         
         echo "success";
-        include 'mailing.php'; // envia correo c/token
+        include 'mailing.php'; // envia correo c/token y stock
         
         
 	} catch(Stripe_CardError $e){
