@@ -157,9 +157,9 @@ require_once 'init.php';
              NOTAS:
            <br>
              Espera nuestra siguiente Maceta para ayudar a sembrar la diferencia.
-            <!----Compra mínima de $30 MXN-->
+            <!----Compra mínima de $30 MXN
            <br>
-             -Recuerda que tu compra la podrás recoger este sábado 23 de Julio en el Huerto Roma Verde.
+             -Recuerda que tu compra la podrás recoger este sábado 23 de Julio en el Huerto Roma Verde.-->
            </p>
            <table>
                 <thead>
@@ -317,11 +317,11 @@ require_once 'init.php';
          <h4 class="red-text">¡Oops, llegaste un poco tarde!</h4>
         <p style="text-align: justify;">
           Nuestra tienda está cerrada. De cualquier manera, te invitamos a que conozcas a los productos y a los productores. Síguenos en redes para enterarte de la siguiente Maceta. ¡Gracias por ayudarnos a sembrar la diferencia!
-          <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
+    <!--      <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
           <br>
        </p>
        <p>
-        <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>-->
        </p>
        <p style="text-align: center;">
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
