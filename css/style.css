@@ -248,6 +248,43 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
   width: 95%;
 }
+/*Historias*/
+.caso {
+  background-color: rgba(129, 129, 129, 0.8);
+  padding: 0.5em 0;
+}
+@media only screen and (min-width: 601px){
+  .caso{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+  }
+}
+
+.caso__foto{
+  border-radius: 15px;
+}
+.caso__copy h4{
+  color: white;
+}
+.caso__copy p{
+  font-weight: 400;
+  color: white;
+  overflow: hidden;
+}
+.caso__boton{
+  text-align: center;
+}
+.historias-casos li{
+  opacity: 0;
+}
+
 /*Productores*/
 .buscamos{
     border-style: solid;
@@ -283,13 +320,13 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   height: 133px;
 }
 @media only screen and (max-width: 601px) {
-    .boton a.btn-large {
+    .boton button.btn-large {
       height: 60px;
       border-radius: 15px;
     }
     .boton{
         top: 130%;
-        right: 25%;
+        right: 23%;
     }
     .img-buscamos{
       bottom: -100px;
@@ -638,12 +675,7 @@ div.pic {
 }
 
 /*Conócenos*/
-.conocenos{
-  position: relative;
-}
-.row .col.foto{
-  padding: 0.75rem 0.75rem;
-}
+
 
 
 /*Términos y condiciones*/
@@ -698,4 +730,22 @@ div.term p{
   right:0;
   /*background:rgba(0,0,0,0.9);*/
   transition: 1s 0.4s;
+}
+/*MACETAS*/
+.conocenos{
+  position: relative;
+}
+.row .col.foto{
+  padding: 0.75rem 0.75rem;
+}
+#map{
+  height: 100%;
+}
+.inicio-mapa{
+  padding: 40px 0;
+}
+.inicio-mapa__mapa{
+  height: 400px;;
+  margin: 0;
+  padding: 0;
 }

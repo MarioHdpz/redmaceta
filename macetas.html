@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+      <title>Red Maceta</title>
+      <link rel="icon" href="img/favicon.png" type="image/png">
+
+      <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <link href="css/materialize_custom.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+
+    <!--Navegador-->
+    <div class="navbar-fixed green">
+      <nav class="green">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo"><img src="img/png/red.png" alt="" /></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionamiento.html">Así funciona</a></li>
+          <li class="active"><a href="#!">Macetas</a></li>
+          <li><a href="index.html#productores">Soy productor</a></li>
+          <li><a href="galeria">Llévele</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionamiento.html">Así funciona</a></li>
+          <li class="active"><a href="#!">Macetas</a></li>
+          <li><a href="index.html#productores">Soy productor</a></li>
+          <li><a href="galeria">Llévele</a></li>
+        </ul>
+      </div>
+      </nav>
+    </div>
+    <!--/Navegador-->
+    <!-- Inicio -->
+    <div class="inicio green center-align">
+      <!--Encabezado-->
+      <div class="encabezado conocenos green valign-wrapper">
+        <div class="container center-align white-text valign">
+          <p class="borde">Maceta: Punto de encuentro para que puedas recoger tus proyectos</p>
+        </div>
+      </div>
+      <!--/Encabezado-->
+      <!--Fondo-->
+      <div class="inicio-mapa container">
+      <div class="inicio-mapa__mapa">
+         <div id="map"></div>
+      </div>
+      </div>
+      <!--/Fondo-->
+    </div>
+    <!-- /Inicio -->
+
+    <footer class="page-footer green">
+        <div class="row">
+              <div class="col l4 push-l4 m4 push-m4 s12">
+                <img class="img-responsive" src="img/png/ilus_red.png" alt="Únete" />
+                <p class="white-text">Únete a la red</p>
+              </div>
+              <div class="col l4 pull-l4 pull-m4 m4 s12">
+                <a href="https://www.youtube.com/channel/UCgfJfuLthCYz6ojpH8xHq1g" target="_blank"><img class="img-responsive" src="img/png/redes_youtube.png" alt="Canal de youtube" /></a>
+                <a href="https://www.youtube.com/channel/UCgfJfuLthCYz6ojpH8xHq1g" target="_blank"><img class="img-responsive" src="img/png/redes_insta.png" alt="Instagram" /></a>
+                <a href="https://www.facebook.com/redmaceta/?fref=ts" target="_blank"><img class="img-responsive" src="img/png/redes_face.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/RedMaceta" target="_blank"><img class="img-responsive" src="img/png/redes_twitter.png" alt="Twitter" /></a>
+              </div>
+              <div class="col l4 m4 s12 patron">
+              </div>
+        </div>
+      <div class="footer-copyright white">
+        <div class="container center-align term">
+        <h6 class="black-text"><a href="legal.html">Aviso de privacidad</a> | <a href="legal.html">Términos y condiciones</a></h6>
+        </div>
+      </div>
+    </footer>
+    <!--/Footer-->
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/macetas.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8Z8v3MZNQwqrHHDoIXD0EPIFDEH4Xssg&callback=initMap">
+    </script>
+    </body>
+</html>

@@ -41,14 +41,14 @@ require_once 'init.php';
         <ul class="right hide-on-med-and-down">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="index.html?func">Así funciona</a></li>
-          <!--<li><a href="conocenos.html">¡Conócenos!</a></li>-->
+          <li><a href="macetas.html">Macetas</a></li>
           <li><a href="index.html#productores">Soy productor</a></li>
           <li class="active"><a href="#">Llévele</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html?func">Así funciona</a></li>
-          <!--<li><a href="conocenos.html">¡Conócenos!</a></li>-->
+          <li><a href="macetas.html">Macetas</a></li>
           <li><a href="index.html#productores">Soy productor</a></li>
           <li class="active"><a href="#">Llévele</a></li>
         </ul>
