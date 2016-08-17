@@ -1,13 +1,12 @@
+<?php
+require_once 'conex.php';
+?>
 <!DOCTYPE html>
 <html>
 <body>
   <?php
     header("Content-Type: text/html;charset=utf-8");
-    $host_name  = "db624747361.db.1and1.com";
-    $database   = "db624747361";
-    $user_name  = "dbo624747361";
-    $password   = "tomates";
-
+    
     $conn = mysqli_connect($host_name, $user_name, $password, $database);
     $conn->query("SET NAMES 'utf8'");
     if(mysqli_connect_errno())

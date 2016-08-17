@@ -1,13 +1,9 @@
 <?
 
 require_once 'init.php';
+require_once 'conex.php';
 
 $token = "tok_18ILOfIWJMGOT41RFti7RNLC";
-
-$servername = "db624747361.db.1and1.com";
-$username = "dbo624747361";
-$password = "tomates";
-$dbname = "db624747361";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,7 +25,7 @@ $sql = "SELECT * FROM bolsa WHERE id =".$row2["id"];
             $products = $row['products'];
             $token = $row['token'];
     }
-    
+
 	//Creamos los dos arreglos separados
 	$ids = explode(',',$products);
 	$cants = explode(',',$quants);
@@ -46,27 +42,27 @@ $codigoPHP ="";
 		$importe = $precio[$i]*$cants[$i];
 		$total = $total+$importe;
 	}
-    
+
 for ($i=0; $i < $idslenght; $i++) {
 	$stmt = $db->query('SELECT * FROM Producto WHERE id ='.$ids[$i]);
 	$db->query("SET NAMES 'utf8'");
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
    $price = $precio[$i]*$cants[$i];
-    
+
     $codigoPHP = '<tr>
 		<td><span>'.$row["Nombre"].'</span></td>
 		<td><span></span>'.$row["Unidad"].'(s)</td>
 		<td><span>'.$cants[$i].'</td>
 		<td >$ <span>'.$price.'</span> MXN</td>
 	</tr>'.$codigoPHP;
- 
+
 }
-    
+
 
 $msg = null;
 //if(isset($_POST["phpmailer"])){
-    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]); 
+    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]);
 
 
     //$email = $row2["email"]; ////
@@ -84,7 +80,7 @@ $msg = null;
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-      
+
       <style>
         body {word-wrap: break-word;font-family: "Open Sans", sans-serif;}
           .contenedor{
@@ -111,9 +107,9 @@ $msg = null;
               left: 5%;
               top: -200px;
               z-index: 10;
-              padding: 10px; 
+              padding: 10px;
               text-align: left;
-              
+
           }
           .espan{
               display: block;
@@ -138,23 +134,23 @@ $msg = null;
     word-wrap: break-word;">
     <img src="http://redmaceta.com/prueba/PHPMailer-master/imgs/Mail_seguim.png" style="width:100%; height:auto;">
     <h1><strong> ¡Hola responsable consumidor! </strong></h1>
-  
+
       <br/>
-  
+
 
 
 Nos gustaría informarte que la fecha de nuestra primera Maceta ¡está muy cerca!     <br/>
 
-Nuestros productores ya están trabajando en tu pedido y lo tendrán muy fresco para el día del    
+Nuestros productores ya están trabajando en tu pedido y lo tendrán muy fresco para el día del
  evento. <br/><br/>
-    
+
 Este 05 de junio podrás recoger tus productos de la mano del productor de las 10:00 am a las    <br/>
  12:00 pm. ¡Si no puedes asistir en este horario no te preocupes! El equipo de Red Maceta    <br/>
  guardará tu pedido hasta que finalice el evento a las 15:00 pm.    <br/><br/>
 
 
-Tu compra es un pase de entrada a cualquiera de nuestras actividades, ¿te gustaría formar parte  
- de alguna de ellas? Responde a este correo y te garantizamos la entrada a tu actividad    
+Tu compra es un pase de entrada a cualquiera de nuestras actividades, ¿te gustaría formar parte
+ de alguna de ellas? Responde a este correo y te garantizamos la entrada a tu actividad
  favorita.    <br/><br/>
 
 
@@ -181,7 +177,7 @@ Nuestros productores y el equipo de Red Maceta estamos más que felices de poder
 
 
 
-Sigamos #SembrandoLaDiferencia 
+Sigamos #SembrandoLaDiferencia
     <br/><br/>
 <img src="http://redmaceta.com/prueba/PHPMailer-master/imgs/brief_junio_final.png"  height="auto" width="100%" style="text-align:center;">
 <br/><br/>
@@ -195,15 +191,15 @@ Sigamos #SembrandoLaDiferencia
  Calle Jalapa s/n, Cuauhtémoc,Roma Sur,06760 Ciudad de México, D.F.,México
 <br/><br/>
 
-    
+
 </div>
-    
+
 </body>
 </html>';
     $adjunto = $_FILES["adjunto"];
-    
+
     require "PHPMailer-master/PHPMailer-master/class.phpmailer.php";
-    
+
     $mail = new PHPMailer;
     $mail->Host ="u81005991.1and1-data.host";
     $mail->From ="aloha@redmaceta.com";
@@ -214,12 +210,12 @@ Sigamos #SembrandoLaDiferencia
 
     $mail->MsgHTML($mensaje);
     $mail->CharSet = 'UTF-8';
-    
+
     if($adjunto["size"] > 0){
         $mail-> addAttachment($adjunto["tmp_name"], $adjunto["name"]);
     }
     if($mail->send()){
-            $msg ="Enhorabuena mensaje enviado a $email"; 
+            $msg ="Enhorabuena mensaje enviado a $email";
     }else{
         $msg ="ah ocurrido un error";
     }

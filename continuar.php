@@ -1,6 +1,7 @@
 <?php
 
 require_once 'init.php';
+require_once 'conex.php';
 
 	//Recibimos el string
 	$products = $_REQUEST["products"];
@@ -19,11 +20,6 @@ require_once 'init.php';
 		$total = $total+$importe;
 	}
 	$_SESSION['total']=$total*100;
-
-$servername = "db624747361.db.1and1.com";
-$username = "dbo624747361";
-$password = "tomates";
-$dbname = "db624747361";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
