@@ -25,7 +25,7 @@ require_once 'conex.php';
 
 
 // Create connection
-$conn = new mysqli($host_name, $user_name, $password, $database);//
+$conn = new mysqli($servername, $username, $password, $dbname);
 $conn->query("SET NAMES 'utf8'");
 // Check connection
 if ($conn->connect_error) {

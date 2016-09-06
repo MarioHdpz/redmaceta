@@ -22,7 +22,7 @@ require_once 'conex.php';
 	$_SESSION['total']=$total*100;
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host_name, $user_name, $password, $database);
 $conn->query("SET NAMES 'utf8'");
 // Check connection
 if ($conn->connect_error) {
