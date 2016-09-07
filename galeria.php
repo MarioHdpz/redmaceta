@@ -90,65 +90,76 @@ require_once 'init.php';
         </div>
 
       </div>
-
       <!--/Encabezado-->
 
       <!--Galeria-->
       <div class="green galeria">
-      <br><br>
-      <div class="container">
-        <form id="formulario" class="row">
-        <div class="input-field white col l11 m11 s12 center-align">
-          <input id="busqueda" name="busqueda" placeholder="aguacate, pollo, huevo, duraznos, tortilla" type="text" class="validate">
+        <br><br>
+        <!--Barra de búsqueda-->
+        <div class="container">
+          <form id="formulario" class="row">
+          <div class="input-field white col l11 m11 s12 center-align">
+            <input id="busqueda" name="busqueda" placeholder="aguacate, pollo, huevo, duraznos, tortilla" type="text" class="validate">
+          </div>
+          <div class="col l1 m1 s12 center-align">
+            <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
+          </form>
+          </div>
         </div>
-        <div class="col l1 m1 s12 center-align">
-          <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
-        </form>
+        <!--/Barra de búsqueda-->
+        <!--Categorías-->
+        <div class="categorias center">
+            <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+            <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
+            <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_fyv.png"></a>
+            <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
+            <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
+            <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
+            <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
+            <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
         </div>
-      </div>
-      <div class="categorias center">
-          <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
-          <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
-          <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_fyv.png"></a>
-          <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
-          <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
-          <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
-          <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
-          <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
-      </div>
-      <!-- Contenido galería-->
-      <div id="galeria" class="container center-align green">
-        <div id="overlay" class="green">
-            <div class='oops white-text'>Tus productos locales se estan cargando...</div>
-            <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
-        </div>
-      </div>
-      <!-- /Contenido galería-->
+        <!--/Categorías-->
+        <!--Mercado-->
+        <div class="row mercado">
+          <!--Productores (panel lateral)-->
+          <!--Dummy espacio-->
+          <div class="mercado__dummy col l4 m4 s12">
 
-      <!--Numeración
-      <div class="paginas center-align">
-              <ul class="pagination text-white">
-              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li class="active"><a href="#!">1</a></li>
-              <li class="waves-effect"><a href="#!">2</a></li>
-              <li class="waves-effect"><a href="#!">3</a></li>
-              <li class="waves-effect"><a href="#!">4</a></li>
-              <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-              </ul>
-      </div>
-      /Numeración-->
+          </div>
+          <!--/Dummy espacio-->
+          <div class="productor valign-wrapper">
+            <div class="productor__contenedor container valign">
+              <div class="oops white-text">
+                Doña Angelina
+              </div>
+              <img class="responsive-img" src="img/img-productors/aguacate_angelina.jpg" alt="" />
+              <div class='copy_productores'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            </div>
+          </div>
+          <!--/Productores-->
+          <!--Productos-->
+          <div id="galeria" class="col l8 m8 s12 center-align green">
+            <div id="overlay" class="green">
+                <div class='oops white-text'>Tus productos locales se estan cargando...</div>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+          </div>
+          <!--/Productos-->
+        </div>
+        <!--/Mercado-->
       </div>
       <!--/Galeria-->
       <!--Canasta-->
-       <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
        <div class="canasta">
-       <a class="modal-trigger" href="#canasta"><img src="img/png/btn_canasta_ir.png" class="responsive-img waves-effect waves-light" alt="" /></a>
-       <h6 class="white-text">Ver canasta</h6>
+         <a class="modal-trigger" href="#canasta"><img src="img/png/btn_canasta_ir.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+         <h6 class="white-text">Ver canasta</h6>
        </div>
-       <!-- Modal Structure -->
+      <!-- /Modal Trigger -->
+      <!--/Canasta-->
+      <!-- Modal Structure (bolsa) -->
        <div id="canasta" class="modal bottom-sheet">
          <div class="modal-content red-text">
            <h4>Mi canasta</h4>

@@ -189,3 +189,29 @@
       function press(x){
           x.src = "img/png/btn_canasta_press.png";
       }
+      //Movimiento del panel productor
+      $.fn.scrollBottom = function() {
+        return $(document).height() - this.scrollTop() - this.height();
+      };
+      $(window).scroll(function(){
+        //$(".productor").css("top",Math.max(0,500 - $(this).scrollTop()));
+        //$(".productor").css("bottom",Math.max(100,500 - $(this).scrollBottom()));
+          var offset = $("#galeria").offset();
+          var scroll = $(document).scrollTop();
+          var viewport = $(window).height();
+          var altura = $(".productor").height();
+          var tope = Math.round((viewport-altura)/2);
+          console.log("offset: "+ offset.top);
+          console.log("viewport: "+ viewport);
+          console.log("scroll: "+ scroll);
+          console.log("altura: "+ altura);
+          console.log("tope: "+ tope);
+          if (offset.top - scroll > tope) {
+            $(".productor").css("top",offset.top - scroll);
+            $(".productor").css("bottom","auto");
+          }
+          else if (offset.top-scroll < tope) {
+            $(".productor").css("top","auto");
+            $(".productor").css("bottom",Math.max(tope,500 - $(this).scrollBottom()));
+          }
+      });

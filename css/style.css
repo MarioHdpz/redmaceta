@@ -749,3 +749,19 @@ div.term p{
   margin: 0;
   padding: 0;
 }
+/*MERCADO */
+.mercado__dummy{
+  height: 100vh;
+}
+.productor{
+  position: fixed;
+  z-index: 5;
+  width: 33%;
+}
+.productor__contenedor{
+  text-align: center;
+}
+.productor__contenedor img{
+  width: 100%;
+  height: auto;
+}

@@ -6,7 +6,7 @@ require_once 'conex.php';
 <body>
   <?php
     header("Content-Type: text/html;charset=utf-8");
-    
+
     $conn = mysqli_connect($host_name, $user_name, $password, $database);
     $conn->query("SET NAMES 'utf8'");
     if(mysqli_connect_errno())
@@ -81,7 +81,7 @@ require_once 'conex.php';
     ?>
 
       <!--  card <?php echo $x ?> -->
-      <div class="col l4 m6 s12">
+      <div class="col l6 m6 s12">
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg" onerror="this.src='img/productos/Default.jpg'">
