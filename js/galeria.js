@@ -23,6 +23,7 @@
                 xhttp.open("GET", "fichas.php?q=" + str, true);
                 xhttp.send();
       }
+      //Función para mostrar por categoría, se activa al dar clic a una de ellas
       function categoria(str) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -42,15 +43,16 @@
       var tmparr = paramarr[i].split("=");
       params[tmparr[0]] = tmparr[1];
       }
+      //Casos para cargar galería dependiendo de si es por click o búsqueda
       if (params['cat']) {
-      categoria(params['cat']);
+        categoria(params['cat']);
       }
       else if (params['bsq']) {
-      loadgaleria(params['bsq']);
+        loadgaleria(params['bsq']);
       }
       else {
-      loadgaleria("");
-    }
+        loadgaleria("");
+      }
       /*CARRITO*/
       function cantidad(id,n){
         if(n == 1){
@@ -190,9 +192,14 @@
           x.src = "img/png/btn_canasta_press.png";
       }
       //Movimiento del panel productor
-      $.fn.scrollBottom = function() {
-        return $(document).height() - this.scrollTop() - this.height();
-      };
+        //Función jquery auxiliar para medir distancia hacia abajo
+        $.fn.scrollBottom = function() {
+          return $(document).height() - this.scrollTop() - this.height();
+        };
+        $.fn.offsetBottom = function() {
+          var offset = this.offset();
+          return $(window).height() + $(document).scrollTop() - offset.top - this.height();
+        };
       $(window).scroll(function(){
         //$(".productor").css("top",Math.max(0,500 - $(this).scrollTop()));
         //$(".productor").css("bottom",Math.max(100,500 - $(this).scrollBottom()));
@@ -201,11 +208,6 @@
           var viewport = $(window).height();
           var altura = $(".productor").height();
           var tope = Math.round((viewport-altura)/2);
-          console.log("offset: "+ offset.top);
-          console.log("viewport: "+ viewport);
-          console.log("scroll: "+ scroll);
-          console.log("altura: "+ altura);
-          console.log("tope: "+ tope);
           if (offset.top - scroll > tope) {
             $(".productor").css("top",offset.top - scroll);
             $(".productor").css("bottom","auto");
@@ -215,3 +217,40 @@
             $(".productor").css("bottom",Math.max(tope,500 - $(this).scrollBottom()));
           }
       });
+      //Cambio de imagen productor
+      function cambio_productor(rowid) {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                  if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            document.getElementById("contenedor_productores").innerHTML = xhttp.responseText;
+                            $('.modal-trigger').leanModal();
+                            $('.tooltipped').tooltip({delay: 50});
+                          }
+                  };
+                  xhttp.open("GET", "panel_productor.php?p=" + rowid, true);
+                  xhttp.send();
+        };
+        //Trigger cambio
+        var buf = "";
+        $(window).scroll(function(){
+            var x = ($(window).height())/2;
+            var i = 0;
+            var array = [];
+            var array_id = [];
+            var scroll = $(document).scrollTop();
+            $(".row_productores").each(function() {
+                var offset = $(this).offset();
+                var top = offset.top;
+                array[i] = top;
+                array_id[i] = $(this).attr('id');
+                i++;
+            });
+            $.each(array, function( index, value ) {
+              if (x+scroll > array[index] &&  x+scroll < array[index+1]) {
+                if(array_id[index] != buf){
+                  cambio_productor(array_id[index]);
+                  buf = array_id[index];
+                }
+              }
+            });
+        });

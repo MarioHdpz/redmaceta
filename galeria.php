@@ -63,10 +63,10 @@ require_once 'init.php';
         <div class="quees2 encabezado valign-wrapper">
           <div class="container center-align white-text valign">
               <h2>
-                Compra aquí tus productos y recógelos este 23 julio.
+                No has elegido punto de entrega
               </h2>
               <br>
-                <a href="#detalles" class="modal-trigger waves-effect waves-teal btn red">Más detalles</a>
+                <a href="#detalles" class="modal-trigger waves-effect waves-teal btn red">¿Cómo funciona?</a>
           </div>
         </div>
         <div class="slider center-align">
@@ -128,7 +128,7 @@ require_once 'init.php';
           </div>
           <!--/Dummy espacio-->
           <div class="productor valign-wrapper">
-            <div class="productor__contenedor container valign">
+            <div id="contenedor_productores" class="productor__contenedor container valign">
               <div class="oops white-text">
                 Doña Angelina
               </div>

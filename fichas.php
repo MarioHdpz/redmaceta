@@ -16,7 +16,6 @@ require_once 'conex.php';
 
     // maximo por pagina
         $limit = 9;
-
         // pagina pedida
         $pag = (int) $_GET["pag"];
         if ($pag < 1)
@@ -44,6 +43,7 @@ require_once 'conex.php';
 
     if ($cat != 0){
       if ($cat == 4){
+      //$sql = "SELECT * FROM Producto ORDER BY IDProductor";
       $sql = "SELECT * FROM Producto ORDER BY Orden ";
       }
       else{
@@ -51,8 +51,9 @@ require_once 'conex.php';
       }
     }
     elseif ($q == ""){
-      echo "<div class='oops white-text'>Te recomendamos...</div>";
-      $sql = "SELECT * FROM Producto WHERE recomendados = '1' ORDER BY Orden";
+      echo "<div class='oops white-text'>Por productor...</div>";
+      $sql = "SELECT * FROM Producto ORDER BY IDProductor";
+      //$sql = "SELECT * FROM Producto WHERE recomendados = '1' ORDER BY Orden";
     }
     else{
       $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";
@@ -70,14 +71,20 @@ require_once 'conex.php';
       $sql = "SELECT * FROM Producto";
       $result = mysqli_query($conn, $sql);
     }
-    echo '<div class="row">';
-
-
-
+    $x=1;
+    $productor_anterior = "";
     while($row = mysqli_fetch_assoc($result)){
         $sql_productor = "SELECT * FROM productors WHERE id = ".$row['IDProductor'];
         $result_productor  = mysqli_query($conn, $sql_productor);
         $row2 = mysqli_fetch_assoc($result_productor);
+        //If para separar productores por row y agregar rowid
+        if ($productor_anterior!=$row2["id"] && $x!=1) {
+                  echo '</div><div class="row row_productores" id="row_'.$row2["id"].'">';
+        }
+        elseif ( $x==1) {
+          echo '<div class="row row_productores" id="row_'.$row2["id"].'">';
+        }
+        $productor_anterior = $row2["id"];
     ?>
 
       <!--  card <?php echo $x ?> -->
@@ -163,10 +170,11 @@ require_once 'conex.php';
       <!--  /card <?php echo "$x" ?> -->
       <?php
         $x++;
+        //Última llave del while
         }
       ?>
 
-
+      <!--Último div de row-->
       </div>
       <div class="green galeria">
         <div class="categorias center">
