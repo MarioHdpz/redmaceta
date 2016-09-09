@@ -88,7 +88,7 @@ require_once 'conex.php';
     ?>
 
       <!--  card <?php echo $x ?> -->
-      <div class="col l6 m6 s12">
+      <div class="col l4 m4 s12">
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg" onerror="this.src='img/productos/Default.jpg'">
@@ -176,18 +176,10 @@ require_once 'conex.php';
 
       <!--Último div de row-->
       </div>
-      <div class="green galeria">
-        <div class="categorias center">
-            <a id="1" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
-            <a id="2" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
-            <a id="3" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria3_fyv.png"></a>
-            <a id="5" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
-            <a id="6" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
-            <a id="7" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
-            <a id="8" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
-            <a id="4" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
-        </div>
-      </div>
-
+      <script type="text/javascript">
+      $(window).load(function() {
+        arreglo_row_productores();
+      });
+      </script>
 </body>
 </html>

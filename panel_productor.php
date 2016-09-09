@@ -27,9 +27,12 @@ require_once 'conex.php';
 
     while($row = mysqli_fetch_assoc($result)){
     ?>
-    <div class="oops white-text"><?php echo $row["alias"]; ?></div>
+    <!--<div class="oops white-text"><?php echo $row["alias"]; ?></div>-->
+    <div class='copy_productores'>
+    <?php echo "Buenas, yo soy ".$row["alias"];//echo $row["descripcion"] ?>
+    <div class="triangle"></div>
+    </div>
     <img class="responsive-img" src="img/img_productors/<?php echo $row["foto_productor"]; ?>.jpg" alt="" />
-    <div class='copy_productores'><?php echo $row["descripcion"] ?> </div>
 
     <?php
 

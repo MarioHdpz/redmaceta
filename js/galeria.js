@@ -12,30 +12,22 @@
     total();
 
     function loadgaleria(str) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                          document.getElementById("galeria").innerHTML = xhttp.responseText;
-                          $('.modal-trigger').leanModal();
-                          $('.tooltipped').tooltip({delay: 50});
-                        }
-                };
-                xhttp.open("GET", "fichas.php?q=" + str, true);
-                xhttp.send();
+            $.get("fichas.php",{q : str}, function(data, status){
+                $("#galeria").html(data);
+                $('.modal-trigger').leanModal();
+                $('.tooltipped').tooltip({delay: 50});
+
+            });
       }
       //Función para mostrar por categoría, se activa al dar clic a una de ellas
       function categoria(str) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                          document.getElementById("galeria").innerHTML = xhttp.responseText;
-                          $('.modal-trigger').leanModal();
-                          $('.tooltipped').tooltip({delay: 50});
-                        }
-                };
-                xhttp.open("GET", "fichas.php?cat=" + str, true);
-                xhttp.send();
+        $.get("fichas.php",{cat : str}, function(data, status){
+            $("#galeria").html(data);
+            $('.modal-trigger').leanModal();
+            $('.tooltipped').tooltip({delay: 50});
+        });
       }
+      //Casos para cargar galería dependiendo de si es por click o búsqueda
       var paramstr = window.location.search.substr(1);
       var paramarr = paramstr.split ("&");
       var params = {};
@@ -43,7 +35,6 @@
       var tmparr = paramarr[i].split("=");
       params[tmparr[0]] = tmparr[1];
       }
-      //Casos para cargar galería dependiendo de si es por click o búsqueda
       if (params['cat']) {
         categoria(params['cat']);
       }
@@ -200,9 +191,12 @@
           var offset = this.offset();
           return $(window).height() + $(document).scrollTop() - offset.top - this.height();
         };
+      //Función para posicionar al productor al centro.
+      var  didScroll = false;
       $(window).scroll(function(){
         //$(".productor").css("top",Math.max(0,500 - $(this).scrollTop()));
         //$(".productor").css("bottom",Math.max(100,500 - $(this).scrollBottom()));
+          didScroll = true;
           var offset = $("#galeria").offset();
           var scroll = $(document).scrollTop();
           var viewport = $(window).height();
@@ -231,20 +225,24 @@
                   xhttp.send();
         };
         //Trigger cambio
+        //Guardamos el arreglo
+        var i = 0;
+        var array = [];
+        var array_id = [];
+        function arreglo_row_productores(){
+          $(".row_productores").each(function() {
+              var offset = $(this).offset();
+              var top = offset.top;
+              array[i] = top;
+              array_id[i] = $(this).attr('id');
+              i++;
+          });
+        };
+        //Funcion para saber què productos estamos viendo
         var buf = "";
-        $(window).scroll(function(){
+        function eleccion_productor(){
             var x = ($(window).height())/2;
-            var i = 0;
-            var array = [];
-            var array_id = [];
             var scroll = $(document).scrollTop();
-            $(".row_productores").each(function() {
-                var offset = $(this).offset();
-                var top = offset.top;
-                array[i] = top;
-                array_id[i] = $(this).attr('id');
-                i++;
-            });
             $.each(array, function( index, value ) {
               if (x+scroll > array[index] &&  x+scroll < array[index+1]) {
                 if(array_id[index] != buf){
@@ -253,4 +251,10 @@
                 }
               }
             });
-        });
+        };
+        setInterval(function() {
+        if ( didScroll ) {
+        didScroll = false;
+        eleccion_productor();
+        }
+        }, 250);

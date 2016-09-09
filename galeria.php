@@ -129,11 +129,6 @@ require_once 'init.php';
           <!--/Dummy espacio-->
           <div class="productor valign-wrapper">
             <div id="contenedor_productores" class="productor__contenedor container valign">
-              <div class="oops white-text">
-                Doña Angelina
-              </div>
-              <img class="responsive-img" src="img/img-productors/aguacate_angelina.jpg" alt="" />
-              <div class='copy_productores'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
             </div>
           </div>
           <!--/Productores-->

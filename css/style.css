@@ -765,3 +765,16 @@ div.term p{
   width: 100%;
   height: auto;
 }
+.copy_productores{
+  background-color: white;
+  padding: 20px;
+  border-radius: 5%;
+  margin-bottom: 30px;
+}
+.triangle{
+  position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 40px solid white;
+	border-left: 50px solid transparent;
+}
