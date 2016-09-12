@@ -26,7 +26,13 @@ var styles = [
   var locations = [
           ['Casa de Fernando', 19.419430, -99.173131,1],
           ['Casa de Mario', 19.447331, -99.174741,2],
-          ['CTIN', 19.442078, -99.202942,3]
+          ['Casa de Diana', 19.395709, -99.139545,3],
+          ['Casa de Hugo', 19.468574, -99.140278,4],
+          ['Casa de Nestor', 19.363092, -99.288364,5],
+          ['Casa de Irais', 19.508567, -99.204081,6],
+          ['Casa de Iván', 19.305754, -99.190319,7],
+          ['Huerto Roma Verde', 19.411179, -99.159603,8],
+          ['CTIN', 19.442078, -99.202942,9]
         ];
 //inicialización de mapas
 function initMap() {
