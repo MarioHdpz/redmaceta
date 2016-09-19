@@ -3560,7 +3560,7 @@ $(document).ready(function(){
 ;(function ($) {
   $(document).ready(function() {
 
-    $(document).on('click.card', '.card', function (e) {
+    $(document).on('mouseenter.card', '.card', function (e) {
       if ($(this).find('> .card-reveal').length) {
         if ($(e.target).is($('.card-reveal')) || $(e.target).is($('.card-reveal .descripcion')) || $(e.target).is($('.card-reveal .card-title i'))) {
           // Make Reveal animate down and display none
@@ -3583,6 +3583,7 @@ $(document).ready(function(){
       $('.card-reveal').closest('.card').css('overflow', 'hidden');
 
     });
+
 
   });
 }( jQuery ));;(function ($) {
