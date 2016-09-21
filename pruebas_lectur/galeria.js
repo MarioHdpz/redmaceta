@@ -30,6 +30,7 @@
                           document.getElementById("galeria").innerHTML = xhttp.responseText;
                           $('.modal-trigger').leanModal();
                           $('.tooltipped').tooltip({delay: 50});
+                          dataLayer.push({'event': 'click_categoria'});
                         }
                 };
                 xhttp.open("GET", "fichas.php?cat=" + str, true);
@@ -65,6 +66,7 @@
               Materialize.toast('!Producto Agotado! :/', 4000,'tostada');
       }
       function agregar(str){
+        dataLayer.push({'event': 'click_agregar'});
         Materialize.toast('Espera la siguiente Maceta', 4000,'tostada');
         /*var flag = 0;
         var ids = document.getElementsByClassName("idbolsa");

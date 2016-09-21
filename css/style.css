@@ -45,7 +45,7 @@ nav ul{
   position: absolute;
   width: 100%;
   height: 400px;
-  z-index: 3;
+  z-index: 4;
 }
 /*¿Qué va a llevar?*/
 .quelleva h3{
@@ -94,6 +94,8 @@ div.encabezado div.container{
 }
 .conocer{
     text-align: right;
+    display: inline-block;
+    float: right;
 }
 div.encabezado div.container .conocer span{
   font-size: 1rem;
@@ -142,6 +144,9 @@ div.encabezado div.container{
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   font-size: 1.3rem;
+}
+#play-video {
+  display: inline-block;
 }
 #play-video img{
   height: 60px;
